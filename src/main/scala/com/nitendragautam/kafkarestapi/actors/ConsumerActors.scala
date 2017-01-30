@@ -1,4 +1,4 @@
-package edu.ndsu.kafkarestapi.actors
+package com.nitendragautam.kafkarestapi.actors
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import cakesolutions.kafka.KafkaConsumer

@@ -1,14 +1,14 @@
-package edu.ndsu.kafkarestapi.actors
+package com.nitendragautam.kafkarestapi.actors
 
 import akka.actor.Actor
 import cakesolutions.kafka.KafkaProducer
 import com.typesafe.config.ConfigFactory
-import edu.ndsu.kafkarestapi.actors.ProducerActors.LogAnalyticsKafkaMessage
+import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.StringSerializer
 import org.slf4j.{Logger, LoggerFactory}
 
 /*
-Akka based Kafka Producers
+Akka based Kafka Producers which sends Key and Value as Messages
  */
 class ProducerActors extends Actor{
 private val logger :Logger =
@@ -26,8 +26,11 @@ val kafkaTopic ="inputMessage"
 override def receive : Receive ={
 
 
-  case LogAnalyticsKafkaMessage(kafkaMessageKey,kafkaMessageValue) =>{
-
+  case KafkaBrokerMessage(kafkaMessageKey,kafkaMessageValue) =>{
+val kafkaRecord = new ProducerRecord[String,String](kafkaTopic,kafkaMessageKey,kafkaMessageValue)
+val producer = KafkaProducer.apply(kafkaProducerConfig)
+    producer.send(kafkaRecord)
+    producer.close()
   }
   case invalidMessage =>
 logger.info("Cannot Handle these kind of Mesages " +invalidMessage)
@@ -37,5 +40,5 @@ logger.info("Cannot Handle these kind of Mesages " +invalidMessage)
 
 object ProducerActors{
 
-  case class LogAnalyticsKafkaMessage(kafkaMessageKey : String ,kafkaMessageValue :String)
+  case class KafkaBrokerMessage(kafkaMessageKey : String ,kafkaMessageValue :String)
 }

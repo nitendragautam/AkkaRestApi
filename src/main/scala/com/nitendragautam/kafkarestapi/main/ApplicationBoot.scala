@@ -1,10 +1,10 @@
-package edu.ndsu.kafkarestapi.main
+package com.nitendragautam.kafkarestapi.main
 
 import akka.actor.{ActorSystem, Props}
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import com.typesafe.config.ConfigFactory
-import edu.ndsu.kafkarestapi.services.LogAnalyticsRoutes
+import com.nitendragautam.kafkarestapi.services.KafkaRestApiRoutes
 
 
 
@@ -20,7 +20,7 @@ object ApplicationBoot extends App {
   implicit val system = ActorSystem("KafkaRestApiApp")
   implicit val materializer = ActorMaterializer()
 
-  val mainRouteService = new LogAnalyticsRoutes()
+  val mainRouteService = new KafkaRestApiRoutes()
   val config = ConfigFactory.load()
   val address = config.getString("server.address")
   val port = config.getInt("server.port")

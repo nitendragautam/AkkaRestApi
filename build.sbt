@@ -1,11 +1,11 @@
 
-organization := "edu.ndsu"
+organization := "Nitendra Gautam"
 
 version := "1.0"
 
 scalaVersion := "2.11.8"
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
-mainClass in assembly := Some("edu.ndsu.kafkarestapi.main.main.Boot")
+mainClass in assembly := Some("com.nitendragautam.kafkarestapi.main.main.Boot")
 assemblyJarName in assembly := "kafkarestapiapp.jar"
 resolvers += Resolver.bintrayRepo("cakesolutions", "maven")
 libraryDependencies ++= {
