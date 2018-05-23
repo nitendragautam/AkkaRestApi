@@ -1,4 +1,4 @@
-package com.nitendragautam.kafkarestapi.actors
+package com.nitendragautam.scalarestapi.actors
 
 import akka.actor.Actor
 import cakesolutions.kafka.KafkaProducer

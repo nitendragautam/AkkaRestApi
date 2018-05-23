@@ -1,17 +1,17 @@
-package com.nitendragautam.kafkarestapi.services
+package com.nitendragautam.scalarestapi.services
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json.DefaultJsonProtocol
 
 /**
-  *Case Class for Handling LogAnalytics JSON When Post API is called
+  *Case Class for Handling  Scala Rest API JSON When Post API is called
   *
   */
 case class KafkaMessageRequest(firstName :String, lastName :String)
 
 
 /*
-Object Class for Handling LogAnalyticsRequest JSON
+Object Class for Handling Scala Rest API  JSON
  */
 
 trait KafkaMessageRequestJson extends SprayJsonSupport with DefaultJsonProtocol{

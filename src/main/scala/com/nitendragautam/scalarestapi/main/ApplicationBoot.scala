@@ -1,10 +1,10 @@
-package com.nitendragautam.kafkarestapi.main
+package com.nitendragautam.scalarestapi.main
 
 import akka.actor.{ActorSystem, Props}
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
+import com.nitendragautam.scalarestapi.services.ScalaRestService
 import com.typesafe.config.ConfigFactory
-import com.nitendragautam.kafkarestapi.services.KafkaRestApiRoutes
 
 
 
@@ -20,11 +20,12 @@ object ApplicationBoot extends App {
   implicit val system = ActorSystem("KafkaRestApiApp")
   implicit val materializer = ActorMaterializer()
 
-  val mainRouteService = new KafkaRestApiRoutes()
+  implicit val scalaRestService = new ScalaRestService
+  val mainRoute = scalaRestService.scalaRestServiceRoutes
   val config = ConfigFactory.load()
   val address = config.getString("server.address")
   val port = config.getInt("server.port")
 
   //Starting the Web Service
-  Http().bindAndHandle(mainRouteService.routes,address,port)
+  Http().bindAndHandle(mainRoute,address,port)
 }

@@ -1,11 +1,12 @@
-package com.nitendragautam.kafkarestapi.actors
+package com.nitendragautam.scalarestapi.actors
 
 import java.text.SimpleDateFormat
 import java.util.{Calendar, TimeZone}
 
 import akka.actor.{Actor, ActorRef, Props}
-import com.nitendragautam.kafkarestapi.actors.ProducerActors.KafkaBrokerMessage
-import com.nitendragautam.kafkarestapi.services.KafkaMessageRequest
+import ProducerActors.KafkaBrokerMessage
+import com.nitendragautam.scalarestapi.services.KafkaMessageRequest
+
 
 
 
