@@ -10,12 +10,28 @@ import spray.json.DefaultJsonProtocol
 case class KafkaMessageRequest(firstName :String, lastName :String)
 
 
-/*
-Object Class for Handling Scala Rest API  JSON
- */
 
-trait KafkaMessageRequestJson extends SprayJsonSupport with DefaultJsonProtocol{
+/* Case class for IOT Vehicle Data Sensors Used for Self Driving Vehicle*/
+case class VehicleData(vehicleId: String,
+                       vehicleType: String,
+                       routeId: String,
+                       latitude: String,
+                       longitude: String,
+                       timeStamp: String,
+                       vehicleSpeed: Double,
+                       fuelLevel: Double,
+                       outsideTemperature: Int,
+                       engineTemperature: Int)
+
+
+/**
+  * trait for handling Marshalling and Unmarshalling of JSON
+  */
+
+trait MessageRequestJson extends SprayJsonSupport with DefaultJsonProtocol{
   implicit val kafkaMessageJsonFormat = jsonFormat2(KafkaMessageRequest)
+  implicit val vehicleDataJsonFormat = jsonFormat10(VehicleData)
+
 }
 
 /*
