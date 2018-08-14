@@ -66,7 +66,7 @@ var kafkaRoute =
   //Rest Api With S2S Authentification Enabled
 
 
-  
+
 
   //Read the config from config File
   val versionRoute =
