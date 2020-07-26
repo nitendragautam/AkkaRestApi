@@ -14,6 +14,7 @@ libraryDependencies ++={
     "org.apache.spark" %% "spark-streaming" % sparkV ,
     "org.apache.spark" %% "spark-core" % sparkV  ,
     "org.apache.spark" %% "spark-sql" % sparkV ,
+    "io.delta" %% "delta-core" % "0.6.0" ,
     "log4j" % "log4j" % "1.2.17"
   )
 }

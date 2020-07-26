@@ -1,10 +1,8 @@
 package com.nitendragautam.scalablog
 
 import com.google.gson.Gson
-import com.nitendragautam.utilities.DomainCollections.PersonDetail
-import com.nitendragautam.utilities.JsonDataUtility.nestedJson
-
-import scala.collection.JavaConversions._
+import com.nitendratech.utilities.DomainCollections.PersonDetail
+import com.nitendratech.utilities.JsonDataUtility.nestedJson
 
 /**
   * Created by nitendragautam on 9/16/2017.
@@ -24,6 +22,7 @@ object ScalaFunctions {
 
 
     //Seperate the Car Details by Space
+
     val carData = carDetailsList.map(_.models).mkString(" ")
     val carModelsList = carDetailsList.map(_.models)
     carModelsList.toList.foreach(f=>println(f))

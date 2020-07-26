@@ -16,10 +16,6 @@ def fibonacci(number:Int):Int = if(number <2) 1 else fibonacci(number-1)+fibonac
 
   //for loop with number decreasing from 30 to 15 by -1
 
-  for(i <- (30 to 15 by -1).par){
-    println(fibonacci(i))
-  }
-
 
 
 
